@@ -3,9 +3,9 @@ import { useReveal } from '../hooks/useReveal';
 import logoUrl from '../../assets/logo.png';
 
 const contacts = [
-  { icon: MessageCircle, label: 'Telegram', value: '@yuanpay', href: '#' },
+  { icon: MessageCircle, label: 'Telegram', value: '@clever_obmen', href: 'https://t.me/clever_obmen' },
   { icon: Mail, label: 'Email', value: 'support@yuanpay.pro', href: 'mailto:support@yuanpay.pro' },
-  { icon: Phone, label: 'Телефон', value: '+7 915 884 86 23', href: 'tel:+79158848623' },
+  { icon: Phone, label: 'Телефон', value: '+7 915 884 86 23', href: 'https://max.ru/u/f9LHodD0cOJWeky1jBlfvX94C5rcazYHJf1cMkJ2z1jeq9ZjUvt7n3-5E_g' },
 ];
 
 export default function Footer() {
@@ -36,7 +36,7 @@ export default function Footer() {
 
             <div className="grid gap-3 sm:grid-cols-3 lg:pt-8">
               {contacts.map(({ icon: Icon, label, value, href }) => (
-                <a key={label} href={href} className="group flex items-center gap-3 rounded-xl glass-dark p-4 transition-all duration-300 hover:border-white/15 sm:block">
+                <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined} className="group flex items-center gap-3 rounded-xl glass-dark p-4 transition-all duration-300 hover:border-white/15 sm:block">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-all group-hover:border-brand-400/30 group-hover:bg-brand-500/15">
                     <Icon className="h-5 w-5 text-brand-400" />
                   </div>
