@@ -65,7 +65,7 @@ export default function Hero() {
   const sendToTelegram = async (kind: 'request' | 'estimate') => {
     setSending(true);
     setError('');
-    openTelegramChat(buildTelegramMessage(kind));
+    if (kind === 'estimate') openTelegramChat(buildTelegramMessage(kind));
 
     const query = new URLSearchParams(window.location.search);
     const utm = Object.fromEntries(
