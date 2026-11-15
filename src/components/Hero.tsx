@@ -110,7 +110,7 @@ export default function Hero() {
   const quickAmounts = [10000, 50000, 100000];
 
   return (
-    <section className="relative min-h-screen max-w-full overflow-x-hidden bg-[#0a0f0d] noise">
+    <section className="relative min-h-screen max-w-full overflow-x-hidden bg-[#0a0f0d] noise pt-16 sm:pt-20">
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-60" />
       <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-brand-600/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-brand-500/8 blur-[100px]" />

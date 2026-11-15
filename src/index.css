@@ -163,14 +163,8 @@
 
 @media (max-width: 639px) {
   .ticker-track {
-    width: 100%;
-    justify-content: center;
-    gap: 12px;
-    animation: none;
-  }
-
-  .ticker-track > div:nth-child(n + 4) {
-    display: none;
+    gap: 20px;
+    animation-duration: 24s;
   }
 }
 
