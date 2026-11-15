@@ -5,7 +5,7 @@ import logoUrl from '../../assets/logo.png';
 const contacts = [
   { icon: MessageCircle, label: 'Telegram', value: '@yuanpay', href: '#' },
   { icon: Mail, label: 'Email', value: 'support@yuanpay.pro', href: 'mailto:support@yuanpay.pro' },
-  { icon: Phone, label: 'Телефон', value: '8 (800) 000-00-00', href: 'tel:88000000000' },
+  { icon: Phone, label: 'Телефон', value: '+7 915 884 86 23', href: 'tel:+79158848623' },
 ];
 
 export default function Footer() {
