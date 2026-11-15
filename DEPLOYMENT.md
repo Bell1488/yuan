@@ -45,7 +45,7 @@ npm --version
 ```bash
 mkdir -p /var/www/yuanpay
 cd /var/www/yuanpay
-git clone https://github.com/Clerk0808/yuanpay.git .
+git clone https://github.com/Bell1488/yuan.git .
 npm ci
 ```
 
