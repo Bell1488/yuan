@@ -34,6 +34,8 @@ export default function Hero() {
 
   const currentService = serviceTabs.find((item) => item.id === service) ?? serviceTabs[0];
   const numericAmount = Number(amount) || 0;
+  const isAmountValid = numericAmount >= 5000;
+  const amountTooLow = amount !== '' && !isAmountValid;
   const received = numericAmount / YUAN_RATE;
   const formattedReceived = new Intl.NumberFormat('ru-RU', {
     minimumFractionDigits: 2,
@@ -103,7 +105,7 @@ export default function Hero() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!consent) return;
+    if (!consent || !isAmountValid) return;
     void sendToTelegram('request');
   };
 
@@ -201,7 +203,7 @@ export default function Hero() {
                   <input
                     id="amount"
                     type="number"
-                    min="100"
+                    min="5000"
                     value={amount}
                     onChange={(event) => setAmount(event.target.value)}
                     className="min-w-0 w-full bg-transparent text-xl font-bold tracking-tight text-white outline-none placeholder:text-white/20 sm:text-2xl"
@@ -209,6 +211,8 @@ export default function Hero() {
                   <span className="flex shrink-0 items-center gap-1.5 text-xs font-bold text-white/70"><span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm text-brand-400">₽</span> RUB</span>
                 </div>
               </div>
+
+              {amountTooLow && <p role="alert" className="mt-2 px-1 text-[10px] font-medium text-red-300">Минимальная сумма — 5 000 рублей.</p>}
 
               <div className="flex items-center justify-between px-2 py-1.5 text-[10px] text-white/35 sm:px-3">
                 <span>1 CNY ≈ {YUAN_RATE.toFixed(2).replace('.', ',')} RUB</span>
@@ -243,12 +247,12 @@ export default function Hero() {
                 <span>Даю согласие на обработку данных для связи по заявке. <a href="/privacy.html" target="_blank" rel="noreferrer" className="text-brand-300 underline underline-offset-2">Политика конфиденциальности</a>.</span>
               </label>
 
-              <button type="submit" disabled={!consent || submitted || sending} className="mt-3 flex w-full items-center justify-between rounded-xl bg-brand-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-500/15 transition-all hover:bg-brand-400 disabled:cursor-not-allowed disabled:opacity-50 sm:px-5">
+              <button type="submit" disabled={!consent || !isAmountValid || submitted || sending} className="mt-3 flex w-full items-center justify-between rounded-xl bg-brand-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-500/15 transition-all hover:bg-brand-400 disabled:cursor-not-allowed disabled:opacity-50 sm:px-5">
                 <span>{submitted ? 'Заявка отправлена' : sending ? 'Отправляем…' : 'Оставить заявку'}</span>
                 {submitted ? <Check className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
               </button>
 
-              <button type="button" disabled={!consent || sending} onClick={() => void sendToTelegram('estimate')} className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-brand-400/20 bg-brand-500/10 px-4 py-2.5 text-[13px] font-semibold text-brand-300 transition-colors hover:bg-brand-500/15 disabled:cursor-not-allowed disabled:opacity-50">
+              <button type="button" disabled={!consent || !isAmountValid || sending} onClick={() => void sendToTelegram('estimate')} className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-brand-400/20 bg-brand-500/10 px-4 py-2.5 text-[13px] font-semibold text-brand-300 transition-colors hover:bg-brand-500/15 disabled:cursor-not-allowed disabled:opacity-50">
                 <span className="text-sm">↗</span>
                 Получить расчёт в Telegram
                 <ArrowRight className="h-3.5 w-3.5" />
