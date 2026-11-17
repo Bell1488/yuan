@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'Есть ли минимальная сумма?',
-    answer: 'Минимальная сумма пополнения Alipay / WeChat — 100 ₽. Для выкупа товаров с 1688 — от 1 000 ₽.',
+    answer: 'Да, минимальная сумма для пополнения Alipay и WeChat, перевода поставщику или выкупа товара — 5 000 ₽.',
   },
   {
     question: 'Это безопасно?',
@@ -66,7 +66,7 @@ export default function FAQ() {
   const { ref, visible } = useReveal();
 
   return (
-    <section id="faq" className="relative scroll-mt-16 bg-[#0a0f0d] py-16 sm:py-24 lg:py-32">
+    <section id="faq" className="relative scroll-mt-16 border-t border-white/8 bg-white/[0.03] py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           {/* Left: header */}

@@ -12,7 +12,7 @@ export default function Footer() {
   const { ref, visible } = useReveal();
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-[#0a0f0d]">
+    <footer id="contact" className="relative overflow-hidden border-t border-white/8 bg-[#101b15]">
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" />
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-brand-600/8 blur-[120px]" />
 
@@ -30,7 +30,7 @@ export default function Footer() {
                 <span className="text-white/40">Напишите нам.</span>
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-white/40 sm:mt-5 sm:text-base">
-                Калькулятор заявки находится в первом экране. Выберите услугу, получите расчёт и отправьте его менеджеру в Telegram.
+                Выберите услугу в калькуляторе, укажите сумму от 5 000 ₽ и получите предварительный расчёт. Финальные условия менеджер зафиксирует до оплаты.
               </p>
             </div>
 

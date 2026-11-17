@@ -1,5 +1,5 @@
 import { useReveal } from '../hooks/useReveal';
-import { UserPlus, FileCheck, CreditCard, PackageCheck } from 'lucide-react';
+import { ArrowRight, Check, UserPlus, FileCheck, CreditCard, PackageCheck } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Step {
@@ -77,8 +77,8 @@ export default function HowItWorks() {
   const { ref, visible } = useReveal();
 
   return (
-    <section id="how-it-works" className="relative scroll-mt-16 border-t border-white/5 bg-[#0d1310] py-16 sm:py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 grid-pattern-dense opacity-40" />
+    <section id="how-it-works" className="relative scroll-mt-16 border-y border-white/8 bg-white/[0.045] py-16 sm:py-24 lg:py-32">
+      <div className="pointer-events-none absolute inset-0 grid-pattern-dense opacity-25" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div
@@ -95,12 +95,33 @@ export default function HowItWorks() {
             От заявки до получения — <br className="hidden sm:block" />
             <span className="text-white/40">21 минута</span>
           </h2>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/50 sm:text-base">
+            Вы заранее видите курс и сумму к получению. Менеджер проверяет реквизиты и остаётся на связи до завершения операции.
+          </p>
         </div>
 
         <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-5 lg:mt-14 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <StepCard key={step.title} step={step} index={i} />
           ))}
+        </div>
+
+        <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-brand-400/15 bg-brand-500/[0.07] p-5 sm:mt-8 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+          <div>
+            <div className="text-sm font-bold text-white sm:text-base">Можно начать с суммы от 5 000 ₽</div>
+            <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/50 sm:text-sm">
+              {['Без оплаты на сайте', 'Условия до перевода', 'Подтверждение операции'].map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-brand-400" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+          <a href="#hero-calculator" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-brand-50">
+            Рассчитать перевод
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

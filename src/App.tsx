@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
+import ServiceTicker from './components/ServiceTicker';
+import Conditions from './components/Conditions';
 import About from './components/About';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
@@ -13,11 +14,14 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Stats />
-        <Services />
-        <HowItWorks />
-        <About />
-        <FAQ />
+        <ServiceTicker />
+        <div className="ambient-surface relative isolate overflow-hidden">
+          <Conditions />
+          <Services />
+          <HowItWorks />
+          <About />
+          <FAQ />
+        </div>
       </main>
       <Footer />
     </div>

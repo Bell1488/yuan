@@ -114,6 +114,28 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .ambient-surface {
+    background:
+      radial-gradient(ellipse 72% 36% at 8% 8%, rgba(34, 197, 94, 0.2), transparent 68%),
+      radial-gradient(ellipse 60% 30% at 96% 30%, rgba(16, 185, 129, 0.17), transparent 70%),
+      radial-gradient(ellipse 64% 32% at 12% 58%, rgba(74, 222, 128, 0.13), transparent 72%),
+      radial-gradient(ellipse 72% 36% at 92% 82%, rgba(22, 163, 74, 0.18), transparent 70%),
+      linear-gradient(180deg, #101b15 0%, #122019 45%, #0e1914 100%);
+  }
+
+  .ambient-surface::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(74, 222, 128, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 222, 128, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: linear-gradient(to bottom, black, transparent 92%);
+  }
 }
 
 @layer utilities {
@@ -165,6 +187,22 @@
   .ticker-track {
     gap: 20px;
     animation-duration: 24s;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation-play-state: paused;
   }
 }
 

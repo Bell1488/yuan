@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { ArrowLeftRight, ArrowRight, Check, Clock, Shield, TrendingUp } from 'lucide-react';
+import { ArrowLeftRight, ArrowRight, BadgeRussianRuble, Check, FileCheck2, MessagesSquare } from 'lucide-react';
 import { trackGoal } from '../analytics';
 
 const YUAN_RATE = 12.67;
@@ -117,23 +117,6 @@ export default function Hero() {
       <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-brand-600/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-brand-500/8 blur-[100px]" />
 
-      <div className="relative z-10 border-b border-white/5 bg-black/20 overflow-hidden">
-        <div className="ticker-track flex w-max gap-10 py-2.5 whitespace-nowrap animate-[ticker_30s_linear_infinite]">
-          {[...serviceTabs, ...serviceTabs].map((item, index) => (
-            <div key={`${item.id}-${index}`} className="flex items-center gap-3 text-xs">
-              <span className="font-medium text-white/40">{item.label}</span>
-              <span className="font-semibold text-white/80">{item.output}</span>
-              <span className="text-brand-400">онлайн</span>
-              <span className="text-white/10">|</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-      `}</style>
-
       <div className="relative z-10 mx-auto max-w-7xl min-w-0 px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:pt-28">
         <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="max-w-xl">
@@ -157,9 +140,9 @@ export default function Hero() {
 
             <div className="mt-8 grid max-w-lg grid-cols-3 gap-2.5 sm:gap-5">
               {[
-                { icon: Clock, value: '15 мин', label: 'до зачисления' },
-                { icon: Shield, value: '5 000+', label: 'клиентов в РФ' },
-                { icon: TrendingUp, value: '12.67 ₽', label: 'курс CNY' },
+                { icon: BadgeRussianRuble, value: 'от 5 000 ₽', label: 'минимальная сумма' },
+                { icon: FileCheck2, value: 'до оплаты', label: 'фиксируем условия' },
+                { icon: MessagesSquare, value: 'на связи', label: 'менеджер по заявке' },
               ].map(({ icon: Icon, value, label }) => (
                 <div key={value} className="border-l border-white/10 pl-3 sm:pl-4">
                   <Icon className="mb-2 h-4 w-4 text-brand-400" />

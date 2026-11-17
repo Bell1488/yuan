@@ -16,31 +16,31 @@ interface Service {
 const services: Service[] = [
   {
     title: 'Пополнение Alipay',
-    description: 'Прямое пополнение кошелька Alipay в юанях. Перевод на любой аккаунт — от 100 ₽ до 500 000 ₽. Без посредников и скрытых комиссий.',
-    features: ['Перевод за 15 минут', 'Комиссия от 3%', 'Поддержка 24/7', 'Любая сумма от 100 ₽'],
+    description: 'Пополняем личные и корпоративные кошельки Alipay в юанях. До оплаты фиксируем курс, сумму к получению и комиссию.',
+    features: ['От 5 000 ₽', 'Обычно от 15 минут', 'Курс до оплаты', 'Подтверждение перевода'],
     span: 'wide',
     accent: 'from-brand-500/15 to-brand-700/5',
     logo: alipayLogo,
   },
   {
     title: 'WeChat Pay',
-    description: 'Перевод на кошелёк WeChat для оплаты товаров и сервисов в Китае.',
-    features: ['Мгновенный перевод', 'Без скрытых комиссий'],
+    description: 'Переводим юани на WeChat Pay для оплаты товаров, сервисов и повседневных расходов в Китае.',
+    features: ['От 5 000 ₽', 'Проверка реквизитов', 'Поддержка менеджера'],
     span: 'normal',
     accent: 'from-brand-400/12 to-brand-600/5',
     logo: wechatLogo,
   },
   {
     title: 'Выкуп с 1688',
-    description: 'Выкуп товаров оптом с 1688.com — поиск, проверка, доставка в РФ.',
-    features: ['Поиск поставщиков', 'Проверка качества', 'Доставка под ключ'],
+    description: 'Помогаем оплатить заказ на 1688, связаться с продавцом и организовать отправку товара в Россию.',
+    features: ['От 5 000 ₽', 'Проверка продавца', 'Оплата заказа', 'Доставка в РФ'],
     span: 'normal',
     accent: 'from-brand-500/12 to-brand-700/5',
   },
   {
     title: 'Выкуп с Alibaba',
-    description: 'Закупка товаров на Alibaba для бизнеса. Полное сопровождение сделки: от поиска производителя до таможни и логистики. Работаем с юридическими лицами и ИП.',
-    features: ['Оптовые заказы', 'Таможенное оформление', 'Логистика под ключ', 'Для юр. лиц и ИП'],
+    description: 'Сопровождаем закупку на Alibaba: согласуем инвойс, проводим оплату поставщику и помогаем с логистикой и документами.',
+    features: ['От 5 000 ₽', 'Оптовые заказы', 'Для юрлиц и ИП', 'Логистика под ключ'],
     span: 'wide',
     accent: 'from-brand-600/15 to-brand-800/5',
     logo: alibabaLogo,
@@ -93,8 +93,8 @@ export default function Services() {
   const { ref, visible } = useReveal();
 
   return (
-    <section id="services" className="relative scroll-mt-16 bg-[#0a0f0d] py-16 sm:py-24 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" />
+    <section id="services" className="relative scroll-mt-16 py-16 sm:py-24 lg:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.012] to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         {/* Section header — left aligned, editorial */}
@@ -112,6 +112,9 @@ export default function Services() {
             Полный цикл работы <br className="hidden sm:block" />
             <span className="text-white/40">с китайскими платёжами</span>
           </h2>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/50 sm:text-base">
+            От разового пополнения кошелька до регулярных закупок для бизнеса. Минимальная сумма для любой услуги — 5 000 ₽, точные условия фиксируем до оплаты.
+          </p>
         </div>
 
         {/* Bento grid */}
