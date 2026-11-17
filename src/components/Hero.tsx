@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { ArrowLeftRight, ArrowRight, BadgeRussianRuble, Check, FileCheck2, MessagesSquare } from 'lucide-react';
 import { trackGoal } from '../analytics';
+import heroBackgroundUrl from '../../assets/hero-back.png';
+import heroMobileBackgroundUrl from '../../assets/hero-back-mobile.png';
 
 const YUAN_RATE = 12.67;
 
@@ -113,9 +115,17 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen max-w-full overflow-x-hidden bg-[#0a0f0d] noise pt-16 sm:pt-20">
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-60" />
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-brand-600/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-brand-500/8 blur-[100px]" />
+      <picture className="pointer-events-none absolute inset-0">
+        <source media="(max-width: 639px)" srcSet={heroMobileBackgroundUrl} />
+        <img
+          src={heroBackgroundUrl}
+          alt=""
+          className="h-full w-full object-cover object-center"
+          aria-hidden="true"
+        />
+      </picture>
+      <div className="pointer-events-none absolute inset-0 bg-[#06100b]/35" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#07100c]/55" />
 
       <div className="relative z-10 mx-auto max-w-7xl min-w-0 px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:pt-28">
         <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
